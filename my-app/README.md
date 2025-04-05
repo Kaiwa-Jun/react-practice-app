@@ -2,7 +2,7 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
-First, run the development server:
+### 開発環境での実行
 
 ```bash
 npm run dev
@@ -12,6 +12,19 @@ yarn dev
 pnpm dev
 # or
 bun dev
+```
+
+### Docker 環境での実行
+
+```bash
+# イメージのビルドと起動
+docker-compose up --build
+
+# バックグラウンドで実行する場合
+docker-compose up -d
+
+# コンテナの停止
+docker-compose down
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
