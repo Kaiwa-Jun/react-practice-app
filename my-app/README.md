@@ -33,17 +33,85 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## GitHub Issueの対応手順
 
-To learn more about Next.js, take a look at the following resources:
+このプロジェクトでは、GitHub上のIssueを使用してタスク管理を行っています。以下は、Issueに取り組む際の基本的な手順です。
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 1. Issueの確認と割り当て
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. GitHub上のプロジェクトページから「Issues」タブを開きます
+2. 取り組むIssueを選択し、自分に割り当てます（Assigneesに自分を追加）
 
-## Deploy on Vercel
+### 2. 作業用ブランチの作成
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# 最新のmainブランチを取得
+git checkout main
+git pull origin main
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# 作業用ブランチの作成
+git checkout -b feature/issue-番号_簡単な説明
+# 例: git checkout -b feature/issue-42_add-login-form
+```
+
+ブランチ名の規則:
+- `feature/issue-[Issue番号]_[簡単な説明]` - 新機能の追加
+- `bugfix/issue-[Issue番号]_[簡単な説明]` - バグ修正
+- `refactor/issue-[Issue番号]_[簡単な説明]` - リファクタリング
+
+### 3. こまめなコミット
+
+コードの変更は小さな単位で頻繁にコミットするといいです。
+これにより、変更履歴が明確になり、問題が発生した場合に特定しやすくなります。
+
+```bash
+# 変更したファイルをステージングに追加
+git add ファイル名
+# または全ての変更をステージングに追加
+git add .
+
+# コミットメッセージを付けてコミット
+git commit -m "わかりやすいコミットメッセージ"
+```
+
+良いコミットメッセージの例:
+- 「ログインフォームのHTMLとCSSを追加」
+- 「ユーザー認証機能を実装」
+- 「ナビゲーションバーのレスポンシブデザインを修正」
+
+### 4. リモートリポジトリへのプッシュ
+
+```bash
+# 最初のプッシュ
+git push -u origin ブランチ名
+
+# 以降のプッシュ
+git push
+```
+
+### 5. プルリクエスト（PR）の作成
+
+1. GitHubのリポジトリページに移動します
+2. 「Pull requests」タブを開きます
+3. 「New pull request」ボタンをクリックします
+4. 比較するブランチを選択します:
+   - base: main (マージ先)
+   - compare: あなたの作業ブランチ
+5. 「Create pull request」をクリックします
+6. タイトルと説明を入力します:
+   - タイトル: 「Fix #[Issue番号]: [簡単な説明]」
+   - 説明: 変更内容の詳細、テスト方法などを記載
+7. 「Create pull request」をクリックして完了します
+
+### 6. レビューと修正
+
+1. チームメンバーにレビューを依頼します
+2. レビューコメントに基づいて修正を行います
+3. 修正後、再度コミットとプッシュを行います
+4. 必要に応じてレビュー・修正のプロセスを繰り返します
+
+### 7. マージと完了
+
+1. 承認されたら、「Merge pull request」ボタンでマージします
+2. Issue側で、PRがマージされたことを報告しましょう
+3. Issueがクローズされたことを確認します
